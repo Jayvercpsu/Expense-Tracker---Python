@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h2>Expense Tracker (₱)</h2>
+    <a href="{{ url_for('add_expense') }}">➕ Add Expense</a>
+    <a href="{{ url_for('report') }}">📊 View Report</a>
+
+    <h3>Total: ₱{{ total }}</h3>
+
+    <table>
+        <tr>
+            <th>Date</th>
+            <th>Description</th>
+            <th>Amount (₱)</th>
+            <th>Action</th>
+        </tr>
+        {% for expense in expenses %}
+        <tr>
+            <td>{{ expense.date }}</td>
+            <td>{{ expense.description }}</td>
+            <td>₱{{ expense.amount }}</td>
+            <td><a class="delete-btn" href="{{ url_for('delete_expense', id=expense.id) }}">❌ Delete</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Report</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h2>📊 Expense Report</h2>
+    <a href="{{ url_for('index') }}">🏠 Back to Home</a>
+
+    <!-- Summary Card -->
+    <div class="summary-card">
+        <h3>Total Spent</h3>
+        <p class="total-amount">₱{{ total_spent }}</p>
+    </div>
+
+    <!-- Expense Table -->
+    <table>
+        <tr>
+            <th>Date</th>
+            <th>Description</th>
+            <th>Amount (₱)</th>
+        </tr>
+        {% for expense in expenses %}
+        <tr>
+            <td>{{ expense.date }}</td>
+            <td>{{ expense.description }}</td>
+            <td>₱{{ expense.amount }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
