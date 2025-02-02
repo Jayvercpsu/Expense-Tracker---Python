@@ -7,18 +7,27 @@
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <h2>Add New Expense</h2>
-    <form method="POST">
-        <label>Amount (₱):</label>
-        <input type="number" name="amount" step="0.01" required><br>
+    <div class="container">
+        <h2>➕ Add New Expense</h2>
 
-        <label>Description:</label>
-        <input type="text" name="description" required><br>
+        <div class="button-group"> 
+            <a href="{{ url_for('index') }}" class="btn">📊 View Expenses</a>
+        </div>
 
-        <label>Date:</label>
-        <input type="date" name="date" required><br>
+        <div class="form-container">
+            <form method="POST">
+                <label>💵 Amount (₱):</label>
+                <input type="number" name="amount" step="0.01" required>
 
-        <button type="submit">Add Expense</button>
-    </form>
+                <label>📝 Description:</label>
+                <input type="text" name="description" required>
+
+                <label>📅 Date:</label>
+                <input type="date" name="date" required>
+
+                <button type="submit" class="btn">✅ Add Expense</button>
+            </form>
+        </div>
+    </div>
 </body>
 </html>
